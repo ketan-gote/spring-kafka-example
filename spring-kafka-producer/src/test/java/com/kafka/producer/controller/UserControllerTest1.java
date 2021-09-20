@@ -40,7 +40,7 @@ import lombok.extern.slf4j.Slf4j;
 @EmbeddedKafka(topics = { "user-event" }, partitions = 3)
 @TestPropertySource(properties = { "spring.kafka.bootstrap-servers=${spring.embedded.kafka.brokers}",
 		"spring.kafka.bootstrap-servers=${spring.embedded.kafka.brokers}" })
-public class UserControllerTest {
+public class UserControllerTest1 {
 
 	@Autowired
 	EmbeddedKafkaBroker embeddedKafkaBroker;

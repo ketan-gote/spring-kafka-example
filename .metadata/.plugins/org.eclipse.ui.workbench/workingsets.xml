@@ -5,5 +5,8 @@
 <workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1632107028379_3" label="spring-kafka-producer" name="spring-kafka-producer">
 <item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/spring-kafka-producer" type="4"/>
 </workingSet>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1632120973946_4" label="spring-kafka-consumer" name="spring-kafka-consumer">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/spring-kafka-consumer" type="4"/>
+</workingSet>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1632107005323_2" label="Window Working Set" name="Aggregate for window 1632107005323"/>
 </workingSetManager>
