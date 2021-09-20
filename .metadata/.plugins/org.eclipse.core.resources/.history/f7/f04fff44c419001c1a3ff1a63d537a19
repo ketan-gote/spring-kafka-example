@@ -1,0 +1,13 @@
+package com.kafka.producer.service;
+
+import com.kafka.producer.model.UserCreatedEvent;
+
+public class UserServiceImpl implements UserService {
+
+	@Override
+	public UserCreatedEvent createUser(UserCreatedEvent userCreatedEvent) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

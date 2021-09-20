@@ -1,0 +1,29 @@
+package com.kafka.producer.controller;
+
+import java.util.Date;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.web.client.TestRestTemplate;
+
+import com.kafka.producer.model.UserCreatedEvent;
+
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+public class UserControllerTest {
+
+	@Autowired
+	TestRestTemplate restTemplate;
+	
+	@Test
+	public void testCreateUser() {
+		
+		UserCreatedEvent userCreateEvent = UserCreatedEvent.builder()
+											.dob(new Date())
+											.email("ketan.gote@gmail.com:")
+											.firstName("Ketan ")
+											.lastName("Gote")
+											.build();
+		
+	}
+}

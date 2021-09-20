@@ -1,0 +1,49 @@
+package com.kafka.producer.controller;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.util.Date;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.kafka.test.context.EmbeddedKafka;
+
+import com.kafka.producer.model.UserCreatedEvent;
+
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@EmbeddedKafka(partitions = 1, brokerProperties = { "listeners=PLAINTEXT://localhost:9096", "port=9096" })
+public class UserControllerTest {
+
+	@Autowired
+	TestRestTemplate restTemplate;
+	
+	@Test
+	public void testCreateUser() {
+		
+		UserCreatedEvent userCreateEvent = UserCreatedEvent.builder()
+											.dob(new Date())
+											.email("ketan.gote@gmail.com:")
+											.firstName("Ketan ")
+											.lastName("Gote")
+											.build();
+		
+		HttpHeaders header = new HttpHeaders();
+		header.add(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE);
+		header.add("Authorization", "Bearer AuthToken");
+
+		HttpEntity<UserCreatedEvent> httpEntity = new HttpEntity<UserCreatedEvent>(userCreateEvent, header);
+		
+		ResponseEntity<UserCreatedEvent> responseEntity  = restTemplate.exchange("/api/v1/", HttpMethod.POST, httpEntity, UserCreatedEvent.class);
+		
+		assertEquals(HttpStatus.CREATED, responseEntity.getStatusCode());
+		
+	}
+}

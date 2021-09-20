@@ -1,0 +1,12 @@
+package com.kafka.producer.controller;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import static com.kafka.producer.constant.APIConstant.USER_VERSION;
+
+@RestController
+@RequestMapping(USER_VERSION)
+public class UserController {
+
+}
